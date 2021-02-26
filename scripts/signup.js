@@ -25,26 +25,16 @@ fetch(url)
     return response.json();
   }).then(function(json) {
     console.log(json);
-    /*let results = "";
-    results += '<h2>Weather today in ' + json.name + "</h2>";
-    for (let i = 0; i < json.weather.length; i++) {
-        results += '<img src="http://openweathermap.org/img/w/' + json.weather[i].icon + '.png"/>';
+    let emailResults = "Your email address from ";
+    emailResults += "<strong>" + json.domain + "</strong>";
+    let isValid = json.format_valid;
+    if(isValid) {
+      emailResults += " is in a <strong>valid</strong> format.";
+    } else {
+      emailResults += " is in an <strong>invalid</strong> format.";
     }
-    results += '<h2> Feels like: ' + (json.main.feels_like).toFixed(0) + ' &deg;F </h2>';
-    results += '<p>Current Temperature: ' + (json.main.temp).toFixed(0) + "  &deg;F</p>";
-    results += '<p>Wind Speed: ' + (json.wind.speed).toFixed(0) + " mph</p>";
-
-    results += "<p> Description: ";
-    for (let i=0; i < json.weather.length; i++) {
-        results += json.weather[i].description;
-        if (i !== json.weather.length - 1){
-            results += ", ";
-        }
-    }
-    results += "</p>";
-    //console.log(results);
-    document.getElementById("weatherResults").innerHTML = results;
-    document.getElementById("weatherResults").style.fontFamily = "Impact,Charcoal,sans-serif";*/
+    document.getElementById("emailResults").innerHTML = emailResults;
+    // document.getElementById("weatherResults").style.fontFamily = "Impact,Charcoal,sans-serif";
   });
 
   fetch(url2)
@@ -52,7 +42,15 @@ fetch(url)
       return response.json();
     }).then(function(json) {
       console.log(json);
-
+      let phoneResults = "Your <strong>" + json.line_type + "</strong> phone number from ";
+      phoneResults += "<strong>" + json.carrier + "</strong>";
+      let isValid = json.valid;
+      if(isValid) {
+        phoneResults += " is <strong>valid</strong>.";
+      } else {
+        phoneResults += " is <strong>invalid</strong>.";
+      }
+      document.getElementById("phoneResults").innerHTML = phoneResults;
     });
 
     // Get the modal
