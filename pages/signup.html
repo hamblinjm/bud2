@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Playfair Display">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles.css"/>
-    <title>Bud Login</title>
+    <title>Bud Signup</title>
   </head>
 
   <body>
@@ -29,8 +29,8 @@
           </div>
 
           <a class="nav-item nav-link" href="/pages/learn.html">Learn</a>
-          <a class="nav-item nav-link active" href="#">Login</a>
-          <a class="nav-item nav-link" href="/pages/signup.html">Signup</a>
+          <a class="nav-item nav-link" href="/pages/login.html">Login</a>
+          <a class="nav-item nav-link active" href="#">Signup</a>
         </div>
       </div>
     </nav>
@@ -38,14 +38,22 @@
     <div class="login-img-container">
       <img class="login-img" src="/images/login.jpeg"/>
       <div class="login-box">
-        <h1>Login</h1>
+        <h1>Create an account:</h1>
         <form>
+          <label>First Name:</label>
+          <input type="text"></input><br>
+          <label>Last Name:</label>
+          <input type="text"></input><br>
           <label>Email address:</label>
           <input id="email" type="text"></input><br>
           <label>Password:</label>
-          <input id="password" type="text"></input><br>
-          <input id="loginSubmit" type="submit" value="Login"></input>
-          <input id="signupSubmit" type="submit" value="Sign up"></input>
+          <input type="text"></input><br>
+          <label>Phone Number:</label>
+          <input id="phone" type="text"></input><br>
+          <label>Shipping address:</label>
+          <input id="ship" type="text"></input><br>
+
+          <input id="verifySubmit" type="submit" value="Verify"></input>
         </form>
         <div id="emailResults">
         </div>
@@ -62,6 +70,9 @@
     <a href="https://github.com/hamblinjm/bud2" target = "_blank"> GitHub </a>
     </div>
 
+    <script src="https://cdn.cloudmersive.com/jsclient/cloudmersive-document-convert-client.js"></script>
+    
+    <script text="type/javascript" src="../scripts/signup.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

@@ -1,7 +1,7 @@
 
 var key = "f9db8acf7c05571f9822550bbb412c20";
 
-document.getElementById("loginSubmit").addEventListener
+document.getElementById("verifySubmit").addEventListener
                                 ("click", function(event){
   event.preventDefault();
   const value = document.getElementById("email").value;
@@ -38,4 +38,25 @@ var url = "https://apilayer.net/api/check?access_key=" + key + "&email=" + value
       document.getElementById("weatherResults").innerHTML = results;
       document.getElementById("weatherResults").style.fontFamily = "Impact,Charcoal,sans-serif";*/
     });
+
+    var defaultClient = cloudmersiveConvertApiClient.ApiClient.instance;
+
+    // Configure API key authorization: Apikey
+    var Apikey = defaultClient.authentications['Apikey'];
+    Apikey.apiKey = "b0d8fb10-010e-497f-878c-33a24b666ed2"
+
+    var api = new cloudmersiveConvertApiClient.ConvertDataApi()
+
+    var inputFile = fs.readFileSync("C:\\temp\\input.docx"); // {File} Input file to perform the operation on.
+
+
+    var callback = function(error, data, response) {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log('API called successfully. Returned data: ' + data);
+      }
+    };
+    api.convertDataCsvToJson(Buffer.from(inputFile.buffer), callback);
+
 });
