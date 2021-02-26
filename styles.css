@@ -24,7 +24,13 @@ h1 {
 }
 
 p {
-  margin-bottom: 100px;
+  margin: 0;
+}
+
+#subtext {
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-style: italic;
 }
 
 hr {
