@@ -38,14 +38,16 @@
       <img class="login-img" src="/images/login.jpeg"/>
       <div class="login-box">
         <h1>Login</h1>
-        <!--<form action="/action_page.php>"-->
-        <label for="email">Email address:</label>
-        <input type="text" id="email" name="email"><br><br>
-        <label for="pword">Password:</label>
-        <input type="text" id="pword" name="pword"><br><br>
-        <input type="submit" value="Login" >
-        <input type="submit" value="Sign up" >
-        <!--</form>-->
+        <form>
+          <label>Email address:</label>
+          <input id="email" type="text"></input><br>
+          <label>Password:</label>
+          <input id="password" type="text"></input><br>
+          <input id="loginSubmit" type="submit" value="Login"></input>
+          <input id="signupSubmit" type="submit" value="Sign up"></input>
+        </form>
+        <div id="emailResults">
+        </div>
         <p></p>
       </div>
     </div>

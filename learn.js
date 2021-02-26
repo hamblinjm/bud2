@@ -12,7 +12,7 @@ document.getElementById("plantSubmit").addEventListener
 //fetches the current weather conditions
   const url = "https://trefle.io/api/v1/plants/search?token=" + TREFLE_TOKEN + "&q=" + value;
 
-  fetch(url, { mode: 'cors-anywhere'})
+  fetch(url)
     .then(function(response) {
       return response.json();
     }).then(function(json) {
