@@ -1,6 +1,27 @@
 
 var emailKey = "f9db8acf7c05571f9822550bbb412c20";
 var numKey = "b3b8e697ed9b35333936edc0adaff2d6";
+var passwordKey = "0f23ebofGei2LBIyCBi7hIIKeJ2ASQlMqmSCGFW0rwdaa5TLTLdQqiAB";
+
+document.getElementById("generateSubmit").addEventListener
+                                ("click", function(event){
+    event.preventDefault();
+    var url3 = "https://api.happi.dev/v1/generate-password?apikey=" + passwordKey + "&limit=1&length=10&num=1&upper=1&symbols=0";
+
+    fetch(url3)
+      .then(function(response) {
+        return response.json();
+      }).then(function(json) {
+        console.log(json);
+        let passwordResults = "";
+        if(json.settings["numbers"] === true && json.settings["uppercase"] === true){
+           passwordResults = "Your new password contains a combination of <strong>numbers</strong>, <strong>uppercase</strong>, and lowercase letters";
+        }
+
+        document.getElementById("passwordResults").innerHTML = passwordResults;
+        document.getElementById("password").value = json.passwords[0];
+      });
+});
 
 document.getElementById("verifySubmit").addEventListener
                                 ("click", function(event){
@@ -18,7 +39,6 @@ document.getElementById("verifySubmit").addEventListener
 // url for email verification
 var url = "https://apilayer.net/api/check?access_key=" + emailKey + "&email=" + email + "&format=1";
 var url2 = "http://apilayer.net/api/validate?access_key=" + numKey + "&number=1" + phone + "&format=1";
-
 // fetches email verification
 fetch(url)
   .then(function(response) {
@@ -52,6 +72,7 @@ fetch(url)
       }
       document.getElementById("phoneResults").innerHTML = phoneResults;
     });
+
 
     // Get the modal
   var modal = document.getElementById("myModal");
