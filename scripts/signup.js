@@ -16,6 +16,14 @@ document.getElementById("generateSubmit").addEventListener
         let passwordResults = "";
         if(json.settings["numbers"] === true && json.settings["uppercase"] === true){
            passwordResults = "Your new password contains a combination of <strong>numbers</strong>, <strong>uppercase</strong>, and lowercase letters";
+        } else {
+         if(json.settings["numbers"] === true) {
+           // no uppercase
+           passwordResults = "Your new password contains a combination of <strong>numbers</strong> and lowercase letters";
+         } else {
+           // no numbers
+           passwordResults = "Your new password contains a combination of <strong>uppercase</strong> and lowercase letters";
+         }
         }
 
         document.getElementById("passwordResults").innerHTML = passwordResults;
@@ -45,8 +53,10 @@ fetch(url)
     return response.json();
   }).then(function(json) {
     console.log(json);
-    let emailResults = "Your email address from ";
-    emailResults += "<strong>" + json.domain + "</strong>";
+    let emailResults = "Your email address";
+    if(json.domain) {
+      emailResults += " from <strong>" + json.domain + "</strong>";
+    }
     let isValid = json.format_valid;
     if(isValid) {
       emailResults += " is in a <strong>valid</strong> format.";
@@ -62,8 +72,15 @@ fetch(url)
       return response.json();
     }).then(function(json) {
       console.log(json);
-      let phoneResults = "Your <strong>" + json.line_type + "</strong> phone number from ";
-      phoneResults += "<strong>" + json.carrier + "</strong>";
+      let line_type = "";
+      if(json.line_type) {
+        line_type = json.line_type;
+      }
+      let phoneResults = "Your <strong>" + line_type + "</strong> phone number ";
+      let carrier = "";
+      if(json.carrier) {
+        phoneResults += "from <strong>" + json.carrier + "</strong>";
+      }
       let isValid = json.valid;
       if(isValid) {
         phoneResults += " is <strong>valid</strong>.";
